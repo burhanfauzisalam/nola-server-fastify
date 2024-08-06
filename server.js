@@ -5,7 +5,7 @@ import cors from "@fastify/cors";
 import dotenv from "dotenv";
 
 import connectDB from "./app/config/db.js"; // Import koneksi Mongoose
-// import itemRoutes from "./routes/itemRoutes.js";
+import sebRoutes from "./app/routes/sebRoutes.js";
 import userRoutes from "./app/routes/userRoutes.js";
 
 const fastify = Fastify({
@@ -24,7 +24,7 @@ fastify.register(cors, {
 connectDB();
 
 // Daftarkan routes
-// fastify.register(itemRoutes);
+fastify.register(sebRoutes);
 fastify.register(userRoutes);
 
 fastify.get("/", async (request, reply) => {
